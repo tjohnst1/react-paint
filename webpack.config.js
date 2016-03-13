@@ -9,7 +9,7 @@ module.exports = {
   },
   devServer: {
     inline: true,
-    contentBase: './app/dist'
+    contentBase: './dist'
   },
   module: {
     loaders: [{
