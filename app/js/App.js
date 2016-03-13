@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+import DrawingCanvas from './components/DrawingCanvas';
 
 class App extends Component {
+
   render(){
-    console.log('here');
     return (
-      <div>Hello world</div>
+      <div className='index-container'>
+        <h1>React-Paint</h1>
+        <DrawingCanvas width="800" height="400"/>
+      </div>
     )
   }
 }
