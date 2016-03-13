@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "test": "mocha './app/js/**/*.spec.js' --compilers js:babel-core/register"
   },
   "author": "",
   "license": "ISC",

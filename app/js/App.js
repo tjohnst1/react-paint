@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import DrawingCanvas from './components/DrawingCanvas';
 
 class App extends Component {
-
   render(){
     return (
       <div className='index-container'>
