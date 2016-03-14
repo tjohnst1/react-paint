@@ -5,8 +5,14 @@ import relativeMousePosition from '../utilities/relativeMousePosition';
 export default class DrawingCanvas extends Component {
   constructor(){
     super();
+    this.state = {
+      selectedTool: 'Pencil'
+    }
   }
 
+  selectTool(toolName){
+    this.setState({selectedTool: toolName})
+  }
 
   componentDidMount(){
     // Find the canvas
@@ -18,8 +24,6 @@ export default class DrawingCanvas extends Component {
       context.strokeRect(mouseCoords.x, mouseCoords.y, 250, 250);
     })
   }
-
-
 
   render(){
     return (

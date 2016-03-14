@@ -5,11 +5,12 @@
   "main": "index.html",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "NODE_ENV=test karma start"
+    "test": "mocha './app/js/**/*.spec.js' --compilers js:babel-core/register"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "classnames": "^2.2.3",
     "react": "^0.14.7",
     "react-dom": "^0.14.7"
   },
