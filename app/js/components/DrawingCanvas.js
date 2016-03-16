@@ -4,10 +4,12 @@ import relativeMousePosition from '../utilities/relativeMousePosition';
 
 export default class DrawingCanvas extends Component {
 
-  draw(canvas, context){
+  draw(canvas, context, toolOptions){
     canvas.addEventListener('mousedown', (e) => {
       let coords = relativeMousePosition(canvas, e);
       context.beginPath();
+      context.strokeStyle = toolOptions.strokeColor;
+      context.lineWidth = toolOptions.stroke;
       canvas.addEventListener('mousemove', onMouseMove);
       canvas.addEventListener('mouseup', onMouseUp);
 
@@ -23,31 +25,27 @@ export default class DrawingCanvas extends Component {
         canvas.removeEventListener('mouseup', onMouseUp);
         context.closePath();
       }
-
     });
+
   }
 
   componentDidMount(){
-    // Find the canvas
     const canvas = ReactDOM.findDOMNode(this.refs.canvas);
     const context = canvas.getContext('2d');
-    this.draw(canvas, context);
-    // canvas.addEventListener('click', (e) => {
-    //   context.beginPath();
-    //   const mouseCoords = relativeMousePosition(canvas, e);
-    //   context.strokeRect(mouseCoords.x, mouseCoords.y, 250, 250);
-    // })
+    this.draw(canvas, context, this.props.toolOptions);
   }
 
   render(){
     return (
+      <div className="drawing-canvas-container">
       <canvas width={this.props.width} height={this.props.height} id="canvas" ref="canvas"></canvas>
+      </div>
     )
   }
-
 }
 
 DrawingCanvas.PropTypes = {
   width: PropTypes.number.isRequired,
-  height: PropTypes.number.isRequired
+  height: PropTypes.number.isRequired,
+  toolOptions: PropTypes.object.isRequired
 }

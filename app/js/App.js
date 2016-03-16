@@ -8,7 +8,11 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      selectedTool: "pencil"
+      selectedTool: "pencil",
+      toolOptions: {
+        stroke: 1,
+        strokeColor: "#000000"
+      }
     }
   }
   render(){
@@ -16,8 +20,10 @@ class App extends Component {
     return (
       <div className='index-container'>
         <h1>React-Paint</h1>
-        <ToolPanel tools={tools} selectedTool={this.state.selectedTool}/>
-        <DrawingCanvas width="800" height="400"/>
+        <div className="drawing-container">
+        <ToolPanel tools={tools} selectedTool={this.state.selectedTool} />
+        <DrawingCanvas width="800" height="400" toolOptions={this.state.toolOptions}/>
+        </div>
       </div>
     )
   }

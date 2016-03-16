@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import ToolPanelOptions from './ToolPanelOptions'
 
 export default class ToolPanel extends Component {
   render(){
@@ -11,8 +12,9 @@ export default class ToolPanel extends Component {
         return <button key={i} className={toolClasses}>{tool}</button>
       });
     return (
-      <div>
+      <div className="tool-panel">
         {tools}
+        <ToolPanelOptions />
       </div>
     )
   }
