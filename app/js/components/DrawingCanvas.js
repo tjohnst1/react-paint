@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import relativeMousePosition from '../utilities/relativeMousePosition';
 
+
 export default class DrawingCanvas extends Component {
 
   draw(canvas, context, toolOptions){

@@ -3,7 +3,7 @@ import TestUtils from 'react-addons-test-utils';
 import expect from 'expect';
 import ToolPanel from './ToolPanel';
 
-describe('toolPanel', () => {
+describe('tool panel component', () => {
 
   const tools = ['pencil', 'paint brush', 'eraser', 'rectangle'];
   const renderer = TestUtils.createRenderer();
