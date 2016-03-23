@@ -17,7 +17,7 @@ module.exports = function (config) {
     plugins: [
       require('karma-webpack'),
       'karma-mocha',
-      'karma-chrome-launcher'
+      'karma-chrome-launcher',
     ]
   });
 };
