@@ -39,7 +39,7 @@ export default class DrawingCanvas extends Component {
   render(){
     return (
       <div className="drawing-canvas-container">
-      <canvas width={this.props.width} height={this.props.height} id="canvas" ref="canvas"></canvas>
+        <canvas width={this.props.width} height={this.props.height} id="canvas" ref="canvas"></canvas>
       </div>
     )
   }

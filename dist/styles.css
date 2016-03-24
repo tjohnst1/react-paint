@@ -14,7 +14,25 @@
   width: 20%; }
 
 .tool-panel-options {
-  background: #eee; }
+  background: #eee;
+  padding: 15px;
+  margin: 20px 0 0 0; }
 
-.line {
-  background: black; }
+.line-container {
+  padding: 7.5px;
+  margin: 0;
+  cursor: pointer;
+  border: 1px solid #eee; }
+  .line-container.selected {
+    border: 1px solid black; }
+  .line-container .line {
+    background: black;
+    height: 2px; }
+  .line-container:nth-of-type(2) .line {
+    height: 4px; }
+  .line-container:nth-of-type(3) .line {
+    height: 6px; }
+  .line-container:nth-of-type(4) .line {
+    height: 8px; }
+  .line-container:nth-of-type(5) .line {
+    height: 10px; }

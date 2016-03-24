@@ -5,7 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "mocha './app/js/**/*.spec.js' --compilers js:babel-core/register"
+    "test": "mocha './app/js/**/*.spec.js'"
   },
   "author": "",
   "license": "ISC",
@@ -23,11 +23,9 @@
     "expect-jsx": "^2.4.0",
     "gulp": "^3.9.1",
     "gulp-sass": "^2.2.0",
-    "karma": "^0.13.22",
-    "karma-chrome-launcher": "^0.2.2",
-    "karma-mocha": "^0.2.2",
-    "karma-webpack": "^1.7.0",
+    "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
+    "mocha-jsdom": "^1.1.0",
     "react-addons-test-utils": "^0.14.7",
     "webpack": "^1.12.14"
   }

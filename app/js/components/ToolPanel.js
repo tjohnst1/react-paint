@@ -14,7 +14,7 @@ export default class ToolPanel extends Component {
     return (
       <div className="tool-panel">
         {tools}
-        <ToolPanelOptions />
+        <ToolPanelOptions selectStroke={this.props.selectStroke} toolOptions={this.props.toolOptions}/>
       </div>
     )
   }
