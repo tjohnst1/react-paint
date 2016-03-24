@@ -17,4 +17,11 @@ describe('tool panel component', () => {
     expect(newlySelectedLine.className).toEqual('line-container selected');
   });
 
+  it('should set the stroke weight in the application state', () => {
+    const toolPanelOptions = TestUtils.findRenderedComponentWithType(app, ToolPanelOptions);
+    const mediumWeightLine = TestUtils.scryRenderedDOMComponentsWithClass(toolPanelOptions, 'line-container')[2];
+    TestUtils.Simulate.click(mediumWeightLine);
+    expect(app.state.toolOptions.stroke).toEqual(3);
+  })
+
 });
