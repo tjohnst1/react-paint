@@ -25,7 +25,7 @@ export default class App extends Component {
         <h1>React-Paint</h1>
         <div className="drawing-container">
           <ToolPanel tools={tools} selectedTool={this.state.selectedTool} selectStroke={(stroke) => this.selectStroke(stroke)} toolOptions={this.state.toolOptions}/>
-          <DrawingCanvas width="800" height="400" toolOptions={this.state.toolOptions}/>
+          <DrawingCanvas width="800" height="400" selectedTool={this.state.selectedTool} toolOptions={this.state.toolOptions}/>
         </div>
       </div>
     )

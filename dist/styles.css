@@ -10,6 +10,9 @@
 #canvas {
   background: #eee; }
 
+.pencil {
+  cursor: url("images/pencil.svg"), auto; }
+
 .tool-panel {
   width: 20%; }
 

@@ -44,7 +44,7 @@ export default class DrawingCanvas extends Component {
   render(){
     return (
       <div className="drawing-canvas-container">
-        <canvas width={this.props.width} height={this.props.height} id="canvas" ref="canvas"></canvas>
+        <canvas width={this.props.width} height={this.props.height} id="canvas" ref="canvas" className={`${this.props.selectedTool}`}></canvas>
       </div>
     )
   }
@@ -53,5 +53,6 @@ export default class DrawingCanvas extends Component {
 DrawingCanvas.PropTypes = {
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
-  toolOptions: PropTypes.object.isRequired
+  toolOptions: PropTypes.object.isRequired,
+  selectedTool: PropTypes.string.isRequired
 }
