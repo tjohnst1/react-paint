@@ -4,7 +4,7 @@ import expect from 'expect';
 import expectJSX from 'expect-jsx';
 expect.extend(expectJSX);
 
-import DrawingCanvas from './DrawingCanvas';
+import DrawingCanvas from '../app/js/components/DrawingCanvas';
 
 describe('drawing canvas component', () => {
   const toolOptions = {

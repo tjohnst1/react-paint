@@ -17,7 +17,6 @@ class App extends Component {
   }
   selectStroke(stroke){
     this.setState({toolOptions: {stroke: stroke}});
-    console.log(this.state.toolOptions.stroke);
   }
   render(){
     var tools = ["pencil", "paint brush", "eraser", "rectangle"]

@@ -1,7 +1,7 @@
 import React from 'react'
-import TestUtils from 'react-addons-test-utils';
 import expect from 'expect';
-import ToolPanelOptions from './ToolPanelOptions';
+import TestUtils from 'react-addons-test-utils';
+import ToolPanelOptions from '../app/js/components/ToolPanelOptions';
 
 describe('tool panel component', () => {
 
@@ -19,7 +19,7 @@ describe('tool panel component', () => {
     expect(selected).toEqual(true);
   });
   it('should allow a user to change the stroke weight', () => {
-    
+
   })
 
 });

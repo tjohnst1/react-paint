@@ -1,7 +1,7 @@
 import React from 'react'
-import TestUtils from 'react-addons-test-utils';
 import expect from 'expect';
-import ToolPanel from './ToolPanel';
+import TestUtils from 'react-addons-test-utils';
+import ToolPanel from '../app/js/components/ToolPanel';
 
 describe('tool panel component', () => {
 
