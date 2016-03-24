@@ -10,7 +10,7 @@
   cursor: pointer;
   border: 1px solid #eee;
   &.selected{
-    border: 1px solid black;
+    border: 1px solid darken(#eee, 15%);
   }
   .line{
     background: black;
