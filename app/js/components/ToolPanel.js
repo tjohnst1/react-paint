@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import ToolPanelOptions from './ToolPanelOptions'
+import ColorPicker from './ColorPicker'
 
 export default class ToolPanel extends Component {
   render(){
@@ -16,6 +17,7 @@ export default class ToolPanel extends Component {
       <div className="tool-panel">
         {tools}
         <ToolPanelOptions selectStroke={this.props.selectStroke} toolOptions={this.props.toolOptions}/>
+        <ColorPicker />
       </div>
     )
   }

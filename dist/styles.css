@@ -11,7 +11,7 @@
   background: #eee; }
 
 .pencil {
-  cursor: url("images/pencil.svg"), auto; }
+  cursor: url("/images/pencil.svg"), auto; }
 
 .tool-panel {
   width: 20%; }
@@ -39,3 +39,8 @@
     height: 8px; }
   .line-container:nth-of-type(5) .line {
     height: 10px; }
+
+.color-picker-color-swatch {
+  height: 10px;
+  width: 10px;
+  display: inline-block; }

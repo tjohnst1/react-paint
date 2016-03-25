@@ -2,10 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import {relativeMousePosition, outsideOfCanvas} from '../utilities/mousePositionUtilities';
 
-
 export default class DrawingCanvas extends Component {
 
   draw(canvas, context, toolOptions){
+
     canvas.addEventListener('mousedown', (e) => {
       context.strokeStyle = toolOptions.strokeColor;
       context.lineWidth = toolOptions.stroke;
