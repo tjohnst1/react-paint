@@ -6,9 +6,11 @@ import relativeMousePosition from '../utilities/relativeMousePosition';
 export default class DrawingCanvas extends Component {
 
   draw(canvas, context, toolOptions){
-    context.strokeStyle = toolOptions.strokeColor;
-    context.lineWidth = toolOptions.stroke;
+
     canvas.addEventListener('mousedown', (e) => {
+      context.strokeStyle = toolOptions.strokeColor;
+      context.lineWidth = toolOptions.stroke;
+
       let coords = relativeMousePosition(canvas, e);
       context.beginPath();
       canvas.addEventListener('mousemove', onMouseMove);
@@ -27,7 +29,6 @@ export default class DrawingCanvas extends Component {
         context.closePath();
       }
     });
-
   }
 
   componentDidMount(){
@@ -37,6 +38,7 @@ export default class DrawingCanvas extends Component {
   }
 
   componentDidUpdate(){
+    const canvas = ReactDOM.findDOMNode(this.refs.canvas);
     const context = canvas.getContext('2d');
     this.draw(canvas, context, this.props.toolOptions);
   }

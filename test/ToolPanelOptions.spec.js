@@ -4,7 +4,7 @@ import TestUtils from 'react-addons-test-utils';
 import ToolPanelOptions from '../app/js/components/ToolPanelOptions';
 import App from '../app/js/container/App'
 
-describe('tool panel component', () => {
+describe('tool panel options component', () => {
 
   const app = TestUtils.renderIntoDocument(<App />);
   const toolPanelOptions = TestUtils.findRenderedComponentWithType(app, ToolPanelOptions);
