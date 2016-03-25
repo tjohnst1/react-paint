@@ -7,10 +7,10 @@ export function hexToRgbObj(hex){
   }
 }
 
-export function darken(rgbObj, percent){
+export function darkenRgbObj(rgbObj, percent){
   let newColor = {};
   for(var key in rgbObj){
-    let newVal = rgbObj[key] - (255 * percent) / 100;
+    let newVal = rgbObj[key] - (255 * percent / 100);
     if (newVal < 0) {
       newVal = 0;
     }
@@ -25,4 +25,8 @@ export function rgbObjToHex(rgbObj){
     return Number(num).toString(16).toUpperCase()
   }
   return '#' + rgbArr.map((num) => toBase16(num)).join('');
+}
+
+export function darkenHex(hex, percent){
+  return rgbObjToHex(darkenRgbObj(hexToRgbObj(hex), 20));
 }
