@@ -22,6 +22,6 @@ describe('tool panel options component', () => {
     const mediumWeightLine = TestUtils.scryRenderedDOMComponentsWithClass(toolPanelOptions, 'line-container')[2];
     TestUtils.Simulate.click(mediumWeightLine);
     expect(app.state.toolOptions.stroke).toEqual(3);
-  })
+  });
 
 });

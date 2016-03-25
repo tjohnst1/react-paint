@@ -1,12 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import relativeMousePosition from '../utilities/relativeMousePosition';
+import {relativeMousePosition, outsideOfCanvas} from '../utilities/mousePositionUtilities';
 
 
 export default class DrawingCanvas extends Component {
 
   draw(canvas, context, toolOptions){
-
     canvas.addEventListener('mousedown', (e) => {
       context.strokeStyle = toolOptions.strokeColor;
       context.lineWidth = toolOptions.stroke;
@@ -17,10 +16,14 @@ export default class DrawingCanvas extends Component {
       canvas.addEventListener('mouseup', onMouseUp);
 
       function onMouseMove(evt){
-        context.moveTo(coords.x, coords.y);
-        coords = relativeMousePosition(canvas, evt);
-        context.lineTo(coords.x, coords.y);
-        context.stroke();
+        if (outsideOfCanvas(canvas, evt)){
+          onMouseUp()
+        } else {
+          context.moveTo(coords.x, coords.y);
+          coords = relativeMousePosition(canvas, evt);
+          context.lineTo(coords.x, coords.y);
+          context.stroke();
+        }
       }
 
       function onMouseUp(evt){

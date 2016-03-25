@@ -8,7 +8,7 @@ export default class ToolPanel extends Component {
       (tool, i) => {
         const toolClasses = classNames({
           'tool-panel-tool': true,
-          'active': (this.props.selectedTool === `${tool}`),
+          'active': (this.props.selectedTool === `${tool}`)
         });
         return <button key={i} className={toolClasses} onClick={() => this.props.setSelectedTool(tool)}>{tool}</button>
       });
