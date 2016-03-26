@@ -19,8 +19,13 @@ export function darkenRgbObj(rgbObj, percent){
   return newColor;
 }
 
-export function rgbObjToHex(rgbObj){
-  let rgbVals = [rgbObj.r, rgbObj.g, rgbObj.b];
+export function rgbToHex(rgbObj){
+  let rgbVals = [];
+  if (typeof rgbObj === 'object') {
+    rgbVals = [rgbObj.r, rgbObj.g, rgbObj.b];
+  } else {
+    rgbVals = rgbObj.replace(/[rgb\(\)\s]/gi, '').split(',')
+  }
   function toBase16(num){
     return Number(num).toString(16).toUpperCase()
   }
@@ -37,5 +42,5 @@ export function rgbObjToHex(rgbObj){
 }
 
 export function darkenHex(hex, percent){
-  return rgbObjToHex(darkenRgbObj(hexToRgbObj(hex), percent));
+  return rgbToHex(darkenRgbObj(hexToRgbObj(hex), percent));
 }
