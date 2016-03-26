@@ -7,9 +7,6 @@
 .drawing-canvas-container {
   width: 80%; }
 
-#canvas {
-  background: #eee; }
-
 .pencil {
   cursor: url("/images/pencil.svg"), auto; }
 

@@ -47,9 +47,12 @@ export default class DrawingCanvas extends Component {
   }
 
   render(){
+    const canvasStyles = {
+      background: this.props.backgroundColor
+    };
     return (
       <div className="drawing-canvas-container">
-        <canvas width={this.props.width} height={this.props.height} id="canvas" ref="canvas" className={`${this.props.selectedTool}`}></canvas>
+        <canvas width={this.props.width} height={this.props.height} id="canvas" ref="canvas" className={`${this.props.selectedTool}`} style={canvasStyles}></canvas>
       </div>
     )
   }

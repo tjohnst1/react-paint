@@ -22,4 +22,18 @@ describe('tool panel component', () => {
     expect(secondTool.className).toEqual('tool-panel-tool active');
   });
 
+  it('should change the stroke color to the background color of the canvas when the eraser is selected', () => {
+    const eraser = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-tool')[2];
+    TestUtils.Simulate.click(eraser);
+    expect(app.state.backgroundColor).toEqual(app.state.toolOptions.strokeColor);
+  });
+
+  it('should change the stroke color to black by default when selecting a tool', () => {
+    const eraser = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-tool')[2];
+    const pencil = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-tool')[0];
+    TestUtils.Simulate.click(eraser);
+    TestUtils.Simulate.click(pencil);
+    expect(app.state.toolOptions.strokeColor).toEqual('#000000');
+  });
+
 });
