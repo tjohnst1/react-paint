@@ -16,13 +16,17 @@ describe('color utilities', () => {
     })
   });
   describe('rgbObjToHex', () => {
-    it('convert a RGB object into a hex value', () => {
+    it('converts a RGB object into a hex value', () => {
       expect(rgbObjToHex({r: 125, g: 125, b: 125})).toEqual("#7D7D7D");
+    });
+    it('handles cases where there is a single digit hex value (for either Red, Green, or Blue)', () => {
+      // notice the trailing '8' is converted to '08'
+      expect(rgbObjToHex({r: 193, g: 27, b: 8})).toEqual("#C11B08");
     });
   });
   describe('darkenHex', () => {
     it('should return a darker hex value', () => {
-      expect(darkenHex('#646464'), 20).toEqual('#313131');
+      expect(darkenHex('#646464', 20)).toEqual('#313131');
     })
   })
 })
