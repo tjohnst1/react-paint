@@ -13,10 +13,10 @@ export default class ToolPanel extends Component {
         });
         return <button key={i} className={toolClasses} onClick={() => this.props.setSelectedTool(tool)}>{tool}</button>
       });
-      // { this.props.selectedTool === 'paint brush' ? <ToolPanelOptions selectStroke={this.props.selectStroke} toolOptions={this.props.toolOptions}/> : null}
     return (
       <div className="tool-panel">
         {tools}
+        { this.props.selectedTool === 'paint brush' ? <ToolPanelOptions selectStroke={this.props.selectStroke} toolOptions={this.props.toolOptions}/> : null}
         <ColorPicker setStrokeColor={this.props.setStrokeColor}/>
       </div>
     )
