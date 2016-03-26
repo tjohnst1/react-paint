@@ -1,5 +1,12 @@
-.color-picker-color-swatch{
+.cp-color-swatch{
   height: 10px;
   width: 10px;
   display: inline-block;
+  border: 1px solid #6F6F6F;
+  margin: 0 1px;
+  border-radius: 2px;
+}
+
+.cp-color-swatch-row{
+  height: 14px;
 }

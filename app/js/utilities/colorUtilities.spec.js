@@ -22,7 +22,7 @@ describe('color utilities', () => {
   });
   describe('darkenHex', () => {
     it('should return a darker hex value', () => {
-      expect(darkenHex('#646464'), 20).toEqual('#313131');
+      expect(darkenHex('#646464')).toEqual('#313131');
     })
   })
 })
