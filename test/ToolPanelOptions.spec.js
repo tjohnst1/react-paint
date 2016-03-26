@@ -24,4 +24,11 @@ describe('tool panel options component', () => {
     expect(app.state.toolOptions.stroke).toEqual(3);
   });
 
+  it('should show line weight options if the paint brush is selected', () => {
+    const paintBrush = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-tool')[1];
+    TestUtils.Simulate.click(paintBrush);
+    const toolPanelOptions = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-options');
+    expect(toolPanelOptions).to.have.length(1)
+  })
+
 });

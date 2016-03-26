@@ -24,12 +24,10 @@ export default class App extends Component {
     if (tool === 'eraser'){
       this.setState({toolOptions: {strokeColor: this.state.backgroundColor}})
     } else {
-      console.log(this.state.toolOptions.strokeColor === this.state.backgroundColor)
       if (this.state.toolOptions.strokeColor === this.state.backgroundColor){
         this.setState({toolOptions: {strokeColor: "#000000"}})
       }
     }
-
   }
   setStrokeColor(color){
     this.setState({toolOptions: {strokeColor: color}});
