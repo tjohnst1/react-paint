@@ -8,6 +8,8 @@ describe('tool panel component', () => {
 
   const app = TestUtils.renderIntoDocument(<App />);
   const toolPanel = TestUtils.findRenderedComponentWithType(app, ToolPanel);
+  const pencil = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-tool')[0];
+  const eraser = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-tool')[2];
 
   it('should have tools', () => {
     const tools = ['pencil', 'paint brush', 'eraser', 'rectangle'];
@@ -23,17 +25,20 @@ describe('tool panel component', () => {
   });
 
   it('should change the stroke color to the background color of the canvas when the eraser is selected', () => {
-    const eraser = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-tool')[2];
     TestUtils.Simulate.click(eraser);
     expect(app.state.backgroundColor).toEqual(app.state.toolOptions.strokeColor);
   });
 
-  it('should change the stroke color to black by default when selecting a tool', () => {
-    const eraser = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-tool')[2];
-    const pencil = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-tool')[0];
+  it('should change the stroke color to black by default when selecting a new tool', () => {
     TestUtils.Simulate.click(eraser);
     TestUtils.Simulate.click(pencil);
     expect(app.state.toolOptions.strokeColor).toEqual('#000000');
+  });
+
+  it('should change the stroke weight to 1 and the stroke color to black when selecting the pencil tool', () => {
+    TestUtils.Simulate.click(pencil);
+    expect(app.state.toolOptions.strokeColor).toEqual('#000000');
+    expect(app.state.toolOptions.stroke).toEqual('1');
   });
 
 });

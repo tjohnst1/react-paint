@@ -23,6 +23,8 @@ export default class App extends Component {
     this.setState({selectedTool: tool});
     if (tool === 'eraser'){
       this.setState({toolOptions: {strokeColor: this.state.backgroundColor}})
+    } else if (tool === 'pencil'){
+      this.setState({toolOptions: {stroke: 1, strokeColor: "#000000"}})
     } else {
       if (this.state.toolOptions.strokeColor === this.state.backgroundColor){
         this.setState({toolOptions: {strokeColor: "#000000"}})
