@@ -40,7 +40,7 @@ export default class DrawingCanvas extends Component {
     const newWidth = width * pixelRatio;
     const newHeight = height * pixelRatio;
     const canvasStyles = { width: width, height: height, backgroundColor: this.props.backgroundColor }
-    const canvasClasses = classNames({[`${this.props.selectedTool}`]: true});
+    const canvasClasses = classNames({[`${this.props.selectedTool}-cursor`]: true});
     return (<canvas width={newWidth} height={newHeight} style={canvasStyles} id='canvas' className={canvasClasses} ref='canvas'></canvas>)
   }
 

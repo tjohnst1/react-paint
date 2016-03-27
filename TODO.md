@@ -1,11 +1,12 @@
 #### Important
-- Figure out why the cursor keeps drawing when off canvas
+- Figure out why the cursor keeps drawing when off canvas *
 
 #### Misc
-- Add new cursors
+- Add new cursors *
+- Style all components
 
 #### Tools
-- Straight line tool
+- Straight line tool *
 - Paint can tool
 - Text Tool
 - Shapes

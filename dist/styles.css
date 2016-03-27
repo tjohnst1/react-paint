@@ -7,8 +7,17 @@
 .drawing-canvas-container {
   width: 80%; }
 
-.pencil {
-  cursor: url("/images/pencil.svg"), auto; }
+.pencil-cursor {
+  cursor: url("/images/pencil.png") 2 18, auto; }
+
+.brush-cursor {
+  cursor: url("/images/brush.png") 24 14, auto; }
+
+.eraser-cursor {
+  cursor: url("/images/eraser.png") 16 16, auto; }
+
+.eraser-cursor-2x {
+  cursor: url("/images/eraser-2x.png") 32 32, auto; }
 
 .tool-panel {
   width: 20%;
