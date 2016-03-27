@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames'
 
-export default class ToolPanelOptions extends Component {
+export default class LineWeightSelector extends Component {
   render(){
     let lines = [];
     for (var i = 0; i < 5; i++){

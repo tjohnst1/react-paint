@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import ToolPanelOptions from './ToolPanelOptions'
+import LineWeightSelector from './LineWeightSelector'
 import ColorPicker from './ColorPicker'
 
 export default class ToolPanel extends Component {
@@ -16,7 +16,7 @@ export default class ToolPanel extends Component {
     return (
       <div className="tool-panel">
         {tools}
-        { this.props.selectedTool === 'paint brush' ? <ToolPanelOptions selectStroke={this.props.selectStroke} toolOptions={this.props.toolOptions}/> : null}
+        { this.props.selectedTool === 'paint brush' ? <LineWeightSelector selectStroke={this.props.selectStroke} toolOptions={this.props.toolOptions}/> : null}
         <ColorPicker setStrokeColor={this.props.setStrokeColor} toolOptions={this.props.toolOptions}/>
       </div>
     )
