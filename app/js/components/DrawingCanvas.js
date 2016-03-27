@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import {relativeMousePosition, outsideOfCanvas} from '../utilities/mousePositionUtilities';
+import classNames from 'classnames'
 
 export default class DrawingCanvas extends Component {
 
   draw(canvas, context, toolOptions){
-
     canvas.addEventListener('mousedown', (e) => {
       context.strokeStyle = toolOptions.strokeColor;
       context.lineWidth = toolOptions.stroke;
@@ -34,6 +34,15 @@ export default class DrawingCanvas extends Component {
     });
   }
 
+  createHighResCanvas(width, height){
+    const pixelRatio = window.devicePixelRatio;
+    const newWidth = width * pixelRatio;
+    const newHeight = height * pixelRatio;
+    const canvasStyles = { width: width, height: height, backgroundColor: this.props.backgroundColor }
+    const canvasClasses = classNames({[`${this.props.selectedTool}`]: true});
+    return (<canvas width={newWidth} height={newHeight} style={canvasStyles} id='canvas' className={canvasClasses} ref='canvas'></canvas>)
+  }
+
   componentDidMount(){
     const canvas = ReactDOM.findDOMNode(this.refs.canvas);
     const context = canvas.getContext('2d');
@@ -47,12 +56,10 @@ export default class DrawingCanvas extends Component {
   }
 
   render(){
-    const canvasStyles = {
-      background: this.props.backgroundColor
-    };
+    const canvas = this.createHighResCanvas(this.props.width, this.props.height)
     return (
-      <div className="drawing-canvas-container">
-        <canvas width={this.props.width} height={this.props.height} id="canvas" ref="canvas" className={`${this.props.selectedTool}`} style={canvasStyles}></canvas>
+      <div className='drawing-canvas-container'>
+        {canvas}
       </div>
     )
   }

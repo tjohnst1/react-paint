@@ -1,3 +1,6 @@
+#### Important
+- Fix mouse cursor offset
+
 #### Misc
 - Add new cursors
 

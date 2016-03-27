@@ -5,7 +5,7 @@ import App from '../app/js/container/App'
 import ToolPanel from '../app/js/components/ToolPanel';
 import ToolPanelOptions from '../app/js/components/ToolPanelOptions';
 
-describe('tool panel options', () => {
+describe('tool panel options component', () => {
 
   const app = TestUtils.renderIntoDocument(<App />);
   const toolPanel = TestUtils.findRenderedComponentWithType(app, ToolPanel);

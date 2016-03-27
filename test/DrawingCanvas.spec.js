@@ -1,24 +1,24 @@
 import React from 'react'
+import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 import expect from 'expect';
-import expectJSX from 'expect-jsx';
-expect.extend(expectJSX);
+import App from '../app/js/container/App'
 
 import DrawingCanvas from '../app/js/components/DrawingCanvas';
 
 describe('drawing canvas component', () => {
+  const app = TestUtils.renderIntoDocument(<App />);
+  const drawingCanvas = TestUtils.findRenderedComponentWithType(app, DrawingCanvas);
+  const canvasElement = TestUtils.findRenderedDOMComponentWithTag(drawingCanvas, 'canvas')
+
   const toolOptions = {
     stroke: 1,
     strokeColor: "#000000"
   }
-  const renderer = TestUtils.createRenderer();
-  renderer.render(<DrawingCanvas width="800" height="400" toolOptions={toolOptions} />)
 
   it('should render a canvas element with the input height and width', () => {
-    const type = renderer.getRenderOutput().props.children.type;
-    expect(type).toEqual('canvas');
-    expect(renderer.getRenderOutput()).toIncludeJSX('height="400"')
-    expect(renderer.getRenderOutput()).toIncludeJSX('width="800"')
+    expect(canvasElement.style.height).toEqual("400px");
+    expect(canvasElement.style.width).toEqual("800px");
   });
 
 });
