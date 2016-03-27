@@ -1,11 +1,13 @@
 .tool-panel{
   width: 20%;
+  border: 1px solid $grey;
+  padding: 20px;
 }
 
 .tool-panel-btn{
   display: inline-block;
   background: none;
-  border: 1px solid #eee;
+  border: 1px solid $grey;
   margin: 0 2.5px;
   cursor: pointer;
   &:hover{

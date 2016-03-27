@@ -14,8 +14,8 @@ export default class LineWeightSelector extends Component {
       );
     }
     return (
-      <div className="tool-panel-options">
-        {lines}
+      <div className="line-weight-selector-container">
+        {this.props.selectedTool === 'brush' ? <div>{lines}</div> : null}
       </div>
     )
   }

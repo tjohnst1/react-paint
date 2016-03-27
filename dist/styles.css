@@ -11,12 +11,14 @@
   cursor: url("/images/pencil.svg"), auto; }
 
 .tool-panel {
-  width: 20%; }
+  width: 20%;
+  border: 1px solid #EEEEEE;
+  padding: 20px; }
 
 .tool-panel-btn {
   display: inline-block;
   background: none;
-  border: 1px solid #eee;
+  border: 1px solid #EEEEEE;
   margin: 0 2.5px;
   cursor: pointer; }
   .tool-panel-btn:hover {
@@ -29,10 +31,11 @@
   background-repeat: no-repeat;
   background-size: contain; }
 
-.tool-panel-options {
-  background: #eee;
+.line-weight-selector-container {
+  background: #EEEEEE;
   padding: 15px;
-  margin: 20px 0 0 0; }
+  margin: 20px 0 0 0;
+  height: 120px; }
 
 .line-container {
   padding: 7.5px;
