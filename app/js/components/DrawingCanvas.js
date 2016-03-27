@@ -16,6 +16,7 @@ export default class DrawingCanvas extends Component {
       canvas.addEventListener('mouseup', onMouseUp);
 
       function onMouseMove(evt){
+        const pixelRatio = window.devicePixelRatio;
         if (outsideOfCanvas(canvas, evt)){
           onMouseUp()
         } else {
