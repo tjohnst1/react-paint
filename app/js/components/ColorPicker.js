@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {hexToRgbObj, darkenHex, darkenRgbObj, rgbToHex} from '../utilities/colorUtilities.js'
+import classNames from 'classnames';
+import {hexToRgbObj, darkenHex, darkenRgbObj, rgbToHex} from '../utilities/colorUtilities.js';
 
 export default class ColorPicker extends Component {
 
@@ -12,7 +13,8 @@ export default class ColorPicker extends Component {
         let styles = {};
         const modifiedColor = darkenHex(color, j * 20)
         styles.background = modifiedColor;
-        colorSwatchRow.push((<div style={styles} className="cp-color-swatch" key={(j + 1)*i} onClick={() => this.props.setStrokeColor(modifiedColor)}> </div>));
+        const colorSwatchClasses = classNames({"cp-color-swatch": true, "selected": modifiedColor === this.props.toolOptions.strokeColor})
+        colorSwatchRow.push((<div style={styles} className={colorSwatchClasses} key={(j + 1)*i} onClick={() => this.props.setStrokeColor(modifiedColor)}> </div>));
       })
       colorSwatches.push((<div className="cp-color-swatch-row" key={j * 50}>{colorSwatchRow}</div>));
     }

@@ -41,10 +41,13 @@
   height: 10px;
   width: 10px;
   display: inline-block;
-  border: 1px solid #6F6F6F;
+  border: 1px solid #F5F5F5;
   margin: 0 1px;
   border-radius: 2px;
   cursor: pointer; }
+  .cp-color-swatch.selected {
+    border: 1px solid #000000;
+    box-shadow: 1px 1px 1px #ABABAB; }
 
 .cp-color-swatch-row {
   height: 14px; }

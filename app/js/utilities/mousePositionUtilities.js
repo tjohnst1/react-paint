@@ -9,6 +9,9 @@ export function relativeMousePosition(ele, evt){
 
 export function outsideOfCanvas(ele, evt){
   const rect = ele.getBoundingClientRect();
-  const coords = relativeMousePosition(ele, evt)
-  return (coords.x < 0 || coords.x > rect.width || coords.y < 0 || coords.y > rect.height)
+  const coords = {
+    x: evt.clientX,
+    y: evt.clientY
+  }
+  return !(coords.x > rect.left || coords.x < rect.right || coords.y > rect.top || coords.y < rect.bottom)
 }
