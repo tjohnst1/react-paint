@@ -35,7 +35,7 @@ export default class App extends Component {
     this.setState({toolOptions: {strokeColor: color}});
   }
   render(){
-    var tools = ["pencil", "paint brush", "eraser"]
+    var tools = ["pencil", "brush", "eraser"]
     return (
       <div className='index-container'>
         <h1>React-Paint</h1>

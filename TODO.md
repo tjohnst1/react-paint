@@ -1,5 +1,5 @@
 #### Important
-- Fix mouse cursor offset
+- Figure out why the cursor keeps drawing when off canvas
 
 #### Misc
 - Add new cursors

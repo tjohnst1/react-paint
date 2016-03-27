@@ -12,7 +12,7 @@ describe('tool panel component', () => {
   const eraser = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-tool')[2];
 
   it('should have tools', () => {
-    const tools = ['pencil', 'paint brush', 'eraser'];
+    const tools = ['pencil', 'brush', 'eraser'];
     expect(toolPanel.props.tools).toEqual(tools);
   });
 

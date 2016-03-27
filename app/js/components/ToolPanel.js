@@ -8,15 +8,20 @@ export default class ToolPanel extends Component {
     const tools = this.props.tools.map(
       (tool, i) => {
         const toolClasses = classNames({
-          'tool-panel-tool': true,
+          'tool-panel-btn': true,
           'active': (this.props.selectedTool === `${tool}`)
         });
-        return <button key={i} className={toolClasses} onClick={() => this.props.setSelectedTool(tool)}>{tool}</button>
+        const iconStyles = {
+          backgroundImage: `url('/images/icon-${tool}.svg')`
+        }
+        return (<button key={i} className={toolClasses} onClick={() => this.props.setSelectedTool(tool)} aria-label={tool}>
+                 <span style={iconStyles} className="tool-panel-tool-icon" aria-hidden="true"></span>
+               </button>)
       });
     return (
       <div className="tool-panel">
         {tools}
-        { this.props.selectedTool === 'paint brush' ? <LineWeightSelector selectStroke={this.props.selectStroke} toolOptions={this.props.toolOptions}/> : null}
+        { this.props.selectedTool === 'brush' ? <LineWeightSelector selectStroke={this.props.selectStroke} toolOptions={this.props.toolOptions}/> : null}
         <ColorPicker setStrokeColor={this.props.setStrokeColor} toolOptions={this.props.toolOptions}/>
       </div>
     )

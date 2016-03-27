@@ -13,6 +13,22 @@
 .tool-panel {
   width: 20%; }
 
+.tool-panel-btn {
+  display: inline-block;
+  background: none;
+  border: 1px solid #eee;
+  margin: 0 2.5px;
+  cursor: pointer; }
+  .tool-panel-btn:hover {
+    border: 1px solid black; }
+
+.tool-panel-tool-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: contain; }
+
 .tool-panel-options {
   background: #eee;
   padding: 15px;
