@@ -76,6 +76,7 @@ export default class DrawingCanvas extends Component {
   }
 
   componentDidUpdate(){
+    console.log(this.props.toolOptions.stroke);
     const canvas = ReactDOM.findDOMNode(this.refs.canvas);
     const context = canvas.getContext('2d');
   }

@@ -14,9 +14,10 @@ export default class LineWeightSelector extends Component {
       );
     }
     let circles = [];
-    const circleContainerClasses = classNames({"circle-container": true, "selected": this.props.toolOptions.stroke === i});
+    const sizeConstant = 12.5;
     for (var i = 0; i < 3; i++){
-      const size = i * 10;
+      const size = i * sizeConstant + 1;
+      const circleContainerClasses = classNames({"circle-container": true, "selected": (this.props.toolOptions.stroke === size)});
       circles.push(
         <div className={circleContainerClasses} key={i} onClick={() => this.props.selectStroke(size)}>
             <div className="circle"></div>
