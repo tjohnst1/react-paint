@@ -16,12 +16,12 @@ describe('tool panel component', () => {
     expect(toolPanel.props.tools).toEqual(tools);
   });
 
-  it('should display the selected tool as active', () => {
-    const currentlySelectedTool = TestUtils.findRenderedDOMComponentWithClass(toolPanel, 'tool-panel-btn active');
+  it('should display the selected tool as selected', () => {
+    const currentlySelectedTool = TestUtils.findRenderedDOMComponentWithClass(toolPanel, 'tool-panel-btn selected');
     const secondTool = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-btn')[1];
     TestUtils.Simulate.click(secondTool);
     expect(currentlySelectedTool.className).toEqual('tool-panel-btn');
-    expect(secondTool.className).toEqual('tool-panel-btn active');
+    expect(secondTool.className).toEqual('tool-panel-btn selected');
   });
 
   it('should change the stroke color to the background color of the canvas when the eraser is selected', () => {

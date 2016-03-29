@@ -10,7 +10,7 @@ export default class App extends Component {
     this.state = {
       selectedTool: "pencil",
       toolOptions: {
-        stroke: 2,
+        stroke: 1,
         strokeColor: "#000000"
       },
       backgroundColor: "#EEEEEE"

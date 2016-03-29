@@ -9,7 +9,7 @@ export default class ToolPanel extends Component {
       (tool, i) => {
         const toolClasses = classNames({
           'tool-panel-btn': true,
-          'active': (this.props.selectedTool === `${tool}`)
+          'selected': (this.props.selectedTool === `${tool}`)
         });
         const iconStyles = {
           backgroundImage: `url('/images/icon-${tool}.svg')`

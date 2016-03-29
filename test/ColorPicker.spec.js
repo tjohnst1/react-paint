@@ -18,7 +18,7 @@ describe('the color picker component', () => {
     expect(app.state.toolOptions.strokeColor).toEqual(orangeHex);
   });
 
-  it ('should mark the selected color as active', () => {
+  it ('should mark the selected color as selected', () => {
     const blueColorSwatch = TestUtils.scryRenderedDOMComponentsWithClass(colorPicker, 'cp-color-swatch')[9];
     TestUtils.Simulate.click(blueColorSwatch);
     expect(blueColorSwatch.className).toEqual('cp-color-swatch selected');
