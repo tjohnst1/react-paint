@@ -21,3 +21,23 @@
     &:nth-of-type(#{$i}) .line{ height: #{$i * 2}px; }
   }
 }
+
+.circle-container{
+  padding: 7.5px;
+  margin: 0;
+  cursor: pointer;
+  border: 1px solid #eee;
+  &.selected{
+    border: 1px solid darken(#eee, 15%);
+  }
+  .circle{
+    background: black;
+    height: 2px;
+  }
+  @for $i from 2 through 3 {
+    &:nth-of-type(#{$i}) .circle{
+      height: #{$i * 10}px;
+      width: #{$i * 10}px;
+    }
+  }
+}

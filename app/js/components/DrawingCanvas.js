@@ -4,35 +4,58 @@ import {relativeMousePosition, outsideOfCanvas} from '../utilities/mousePosition
 import classNames from 'classnames'
 
 export default class DrawingCanvas extends Component {
+  constructor(){
+    super();
+    this.state = {
+      isMouseDown: false,
+      lastPoint: {},
+      currentPoint: {}
+    };
+  }
 
-  draw(canvas, context, toolOptions){
+  init(canvas, context){
+    context.strokeStyle = this.props.toolOptions.strokeColor;
+    context.lineWidth = this.props.toolOptions.stroke;
+    context.lineJoin = context.lineCap = "round";
+
     canvas.addEventListener('mousedown', (e) => {
-      context.strokeStyle = toolOptions.strokeColor;
-      context.lineWidth = toolOptions.stroke;
-
-      let coords = relativeMousePosition(canvas, e);
-      context.beginPath();
-      canvas.addEventListener('mousemove', onMouseMove);
-      canvas.addEventListener('mouseup', onMouseUp);
-
-      function onMouseMove(evt){
-        const pixelRatio = window.devicePixelRatio;
-        if (outsideOfCanvas(canvas, evt)){
-          onMouseUp()
-        } else {
-          context.moveTo(coords.x, coords.y);
-          coords = relativeMousePosition(canvas, evt);
-          context.lineTo(coords.x, coords.y);
-          context.stroke();
-        }
-      }
-
-      function onMouseUp(evt){
-        canvas.removeEventListener('mousemove', onMouseMove);
-        canvas.removeEventListener('mouseup', onMouseUp);
-        context.closePath();
-      }
+      e.preventDefault();
+      this.mouseDown(canvas, context, e);
     });
+    canvas.addEventListener('mousemove', (e) => {
+      e.preventDefault();
+      this.mouseMove(canvas, context, e);
+    });
+    canvas.addEventListener('mouseup', (e) => {
+      e.preventDefault();
+      this.mouseUp(canvas, context, e);
+    });
+  }
+
+  mouseDown(canvas, context, e){
+    this.setState({isMouseDown: true});
+    const lastPoint = relativeMousePosition(canvas, e);
+    this.setState({lastPoint: lastPoint});
+  }
+
+  mouseMove(canvas, context, e){
+    if (!this.state.isMouseDown) return;
+    const currentPoint = relativeMousePosition(canvas, e);
+    this.setState({currentPoint: currentPoint});
+    requestAnimationFrame(() => {
+      this.draw(canvas, context)
+    });
+  }
+
+  mouseUp(e){
+    this.setState({isMouseDown: false});
+  }
+
+  draw(canvas, context){
+    context.moveTo(this.state.lastPoint.x, this.state.lastPoint.y);
+    context.lineTo(this.state.currentPoint.x, this.state.currentPoint.y);
+    context.stroke();
+    this.setState({lastPoint: this.state.currentPoint})
   }
 
   createHighResCanvas(width, height){
@@ -47,17 +70,16 @@ export default class DrawingCanvas extends Component {
   componentDidMount(){
     const canvas = ReactDOM.findDOMNode(this.refs.canvas);
     const context = canvas.getContext('2d');
-    this.draw(canvas, context, this.props.toolOptions);
+    this.init(canvas, context);
   }
 
   componentDidUpdate(){
     const canvas = ReactDOM.findDOMNode(this.refs.canvas);
     const context = canvas.getContext('2d');
-    this.draw(canvas, context, this.props.toolOptions);
   }
 
   render(){
-    const canvas = this.createHighResCanvas(this.props.width, this.props.height)
+    const canvas = this.createHighResCanvas(this.props.width, this.props.height);
     return (
       <div className='drawing-canvas-container'>
         {canvas}

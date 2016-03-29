@@ -14,10 +14,16 @@
   cursor: url("/images/brush.png") 24 14, auto; }
 
 .eraser-cursor {
-  cursor: url("/images/eraser.png") 16 16, auto; }
+  cursor: url("/images/eraser.png") 10 10, auto; }
+
+.eraser-cursor-1x {
+  cursor: url("/images/eraser-1x.png") 5 5, auto; }
 
 .eraser-cursor-2x {
-  cursor: url("/images/eraser-2x.png") 32 32, auto; }
+  cursor: url("/images/eraser-2x.png") 10 10, auto; }
+
+.eraser-cursor-3x {
+  cursor: url("/images/eraser-3x.png") 20 20, auto; }
 
 .tool-panel {
   width: 20%;
@@ -64,6 +70,23 @@
     height: 8px; }
   .line-container:nth-of-type(5) .line {
     height: 10px; }
+
+.circle-container {
+  padding: 7.5px;
+  margin: 0;
+  cursor: pointer;
+  border: 1px solid #eee; }
+  .circle-container.selected {
+    border: 1px solid #c8c8c8; }
+  .circle-container .circle {
+    background: black;
+    height: 2px; }
+  .circle-container:nth-of-type(2) .circle {
+    height: 20px;
+    width: 20px; }
+  .circle-container:nth-of-type(3) .circle {
+    height: 30px;
+    width: 30px; }
 
 .cp-color-swatch {
   height: 10px;
