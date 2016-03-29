@@ -8,8 +8,8 @@ describe('tool panel component', () => {
 
   const app = TestUtils.renderIntoDocument(<App />);
   const toolPanel = TestUtils.findRenderedComponentWithType(app, ToolPanel);
-  const pencil = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-tool')[0];
-  const eraser = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-tool')[2];
+  const pencil = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-btn')[0];
+  const eraser = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-btn')[2];
 
   it('should have tools', () => {
     const tools = ['pencil', 'brush', 'eraser'];
@@ -17,11 +17,11 @@ describe('tool panel component', () => {
   });
 
   it('should display the selected tool as active', () => {
-    const currentlySelectedTool = TestUtils.findRenderedDOMComponentWithClass(toolPanel, 'tool-panel-tool active');
-    const secondTool = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-tool')[1];
+    const currentlySelectedTool = TestUtils.findRenderedDOMComponentWithClass(toolPanel, 'tool-panel-btn active');
+    const secondTool = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-btn')[1];
     TestUtils.Simulate.click(secondTool);
-    expect(currentlySelectedTool.className).toEqual('tool-panel-tool');
-    expect(secondTool.className).toEqual('tool-panel-tool active');
+    expect(currentlySelectedTool.className).toEqual('tool-panel-btn');
+    expect(secondTool.className).toEqual('tool-panel-btn active');
   });
 
   it('should change the stroke color to the background color of the canvas when the eraser is selected', () => {
@@ -33,12 +33,6 @@ describe('tool panel component', () => {
     TestUtils.Simulate.click(eraser);
     TestUtils.Simulate.click(pencil);
     expect(app.state.toolOptions.strokeColor).toEqual('#000000');
-  });
-
-  it('should change the stroke weight to 1 and the stroke color to black when selecting the pencil tool', () => {
-    TestUtils.Simulate.click(pencil);
-    expect(app.state.toolOptions.strokeColor).toEqual('#000000');
-    expect(app.state.toolOptions.stroke).toEqual('1');
   });
 
 });

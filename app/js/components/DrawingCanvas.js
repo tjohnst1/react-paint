@@ -14,7 +14,6 @@ export default class DrawingCanvas extends Component {
   }
 
   init(canvas, context){
-    context.lineJoin = context.lineCap = "round";
 
     canvas.addEventListener('mousedown', (e) => {
       e.preventDefault();
@@ -52,6 +51,7 @@ export default class DrawingCanvas extends Component {
   }
 
   draw(canvas, context){
+    context.lineJoin = context.lineCap = "round";
     context.strokeStyle = this.props.toolOptions.strokeColor;
     context.lineWidth = this.props.toolOptions.stroke;
     context.moveTo(this.state.lastPoint.x, this.state.lastPoint.y);
