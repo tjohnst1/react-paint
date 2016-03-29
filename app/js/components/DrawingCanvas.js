@@ -14,8 +14,6 @@ export default class DrawingCanvas extends Component {
   }
 
   init(canvas, context){
-    context.strokeStyle = this.props.toolOptions.strokeColor;
-    context.lineWidth = this.props.toolOptions.stroke;
     context.lineJoin = context.lineCap = "round";
 
     canvas.addEventListener('mousedown', (e) => {
@@ -28,7 +26,7 @@ export default class DrawingCanvas extends Component {
     });
     document.addEventListener('mouseup', (e) => {
       e.preventDefault();
-      this.mouseUp();
+      this.mouseUp(context);
     });
   }
 
@@ -36,6 +34,7 @@ export default class DrawingCanvas extends Component {
     this.setState({isMouseDown: true});
     const lastPoint = relativeMousePosition(canvas, e);
     this.setState({lastPoint: lastPoint});
+    context.beginPath();
   }
 
   mouseMove(canvas, context, e){
@@ -47,11 +46,14 @@ export default class DrawingCanvas extends Component {
     });
   }
 
-  mouseUp(){
+  mouseUp(context){
+    context.closePath();
     this.setState({isMouseDown: false});
   }
 
   draw(canvas, context){
+    context.strokeStyle = this.props.toolOptions.strokeColor;
+    context.lineWidth = this.props.toolOptions.stroke;
     context.moveTo(this.state.lastPoint.x, this.state.lastPoint.y);
     context.lineTo(this.state.currentPoint.x, this.state.currentPoint.y);
     context.stroke();
