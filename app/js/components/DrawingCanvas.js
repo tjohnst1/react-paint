@@ -22,11 +22,11 @@ export default class DrawingCanvas extends Component {
       e.preventDefault();
       this.mouseDown(canvas, context, e);
     });
-    canvas.addEventListener('mousemove', (e) => {
+    document.addEventListener('mousemove', (e) => {
       e.preventDefault();
       this.mouseMove(canvas, context, e);
     });
-    canvas.addEventListener('mouseup', (e) => {
+    document.addEventListener('mouseup', (e) => {
       e.preventDefault();
       this.mouseUp();
     });
