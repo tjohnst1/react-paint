@@ -28,7 +28,7 @@ export default class DrawingCanvas extends Component {
     });
     canvas.addEventListener('mouseup', (e) => {
       e.preventDefault();
-      this.mouseUp(canvas, context, e);
+      this.mouseUp();
     });
   }
 
@@ -43,11 +43,11 @@ export default class DrawingCanvas extends Component {
     const currentPoint = relativeMousePosition(canvas, e);
     this.setState({currentPoint: currentPoint});
     requestAnimationFrame(() => {
-      this.draw(canvas, context)
+      this.draw(canvas, context);
     });
   }
 
-  mouseUp(e){
+  mouseUp(){
     this.setState({isMouseDown: false});
   }
 
@@ -55,7 +55,7 @@ export default class DrawingCanvas extends Component {
     context.moveTo(this.state.lastPoint.x, this.state.lastPoint.y);
     context.lineTo(this.state.currentPoint.x, this.state.currentPoint.y);
     context.stroke();
-    this.setState({lastPoint: this.state.currentPoint})
+    this.setState({lastPoint: this.state.currentPoint});
   }
 
   createHighResCanvas(width, height){
