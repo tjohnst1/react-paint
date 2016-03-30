@@ -16,15 +16,12 @@ export default class DrawingCanvas extends Component {
   init(canvas, context){
 
     canvas.addEventListener('mousedown', (e) => {
-      e.preventDefault();
       this.mouseDown(canvas, context, e);
     });
     document.addEventListener('mousemove', (e) => {
-      e.preventDefault();
       this.mouseMove(canvas, context, e);
     });
     document.addEventListener('mouseup', (e) => {
-      e.preventDefault();
       this.mouseUp(context);
     });
   }
@@ -76,7 +73,6 @@ export default class DrawingCanvas extends Component {
   }
 
   componentDidUpdate(){
-    console.log(this.props.toolOptions.stroke);
     const canvas = ReactDOM.findDOMNode(this.refs.canvas);
     const context = canvas.getContext('2d');
   }

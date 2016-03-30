@@ -16,22 +16,26 @@ export default class App extends Component {
       backgroundColor: "#EEEEEE"
     }
   }
+
   selectStroke(stroke){
     this.setState({toolOptions: {stroke: stroke}});
   }
+
   setSelectedTool(tool){
     this.setState({selectedTool: tool});
     if (tool === 'eraser'){
-      this.setState({toolOptions: {strokeColor: this.state.backgroundColor}})
+      this.setState({ toolOptions: {strokeColor: this.state.backgroundColor} });
     } else {
       if (this.state.toolOptions.strokeColor === this.state.backgroundColor){
-        this.setState({toolOptions: {strokeColor: "#000000"}})
+        this.setState({ toolOptions: {strokeColor: "#000000"} });
       }
     }
   }
+
   setStrokeColor(color){
     this.setState({toolOptions: {strokeColor: color}});
   }
+
   render(){
     var tools = ["pencil", "brush", "eraser"]
     return (

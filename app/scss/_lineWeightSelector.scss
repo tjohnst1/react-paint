@@ -23,7 +23,7 @@
 }
 
 .circle-container{
-  padding: 7.5px;
+  padding: 0 11px;
   margin: 0;
   cursor: pointer;
   border: 1px solid #eee;
@@ -41,7 +41,7 @@
     top: 50%;
     transform: translateY(-50%);
   }
-  @for $i from 2 through 3 {
+  @for $i from 2 through 5 {
     &:nth-of-type(#{$i}) .circle{
       height: #{$i * 5}px;
       width: #{$i * 5}px;

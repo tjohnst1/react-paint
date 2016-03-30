@@ -20,11 +20,11 @@ export default class LineWeightSelector extends Component {
     }
     let circles = [];
     const sizeConstant = 12.5;
-    for (var i = 0; i < 3; i++){
+    for (var i = 0; i < 5; i++){
       const circleSize = i * sizeConstant + 1;
       const circleContainerClasses = classNames({"circle-container": true, "selected": (this.props.toolOptions.stroke === circleSize)});
       circles.push(
-        <div className={circleContainerClasses} key={i} onClick={() => this.props.selectStroke(size)}>
+        <div className={circleContainerClasses} key={i} onClick={() => this.props.selectStroke(circleSize)}>
             <div className="circle"></div>
         </div>
       );
@@ -32,6 +32,8 @@ export default class LineWeightSelector extends Component {
     return (
       <div className="line-weight-selector-container">
         {this.props.selectedTool === 'pencil' ? <div>{lines}</div> : <div>{circles}</div>}
+        <input type='range' min='1' max='150' step='1' value={this.props.toolOptions.stroke} onChange={(event) => this.props.selectStroke(Number(event.target.value))} />
+        <p>Current Size: { this.props.toolOptions.stroke }</p>
       </div>
     )
   }
