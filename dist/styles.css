@@ -4,6 +4,9 @@
 .drawing-container {
   display: flex; }
 
+#canvas {
+  border: 2px solid black; }
+
 .drawing-canvas-container {
   width: 80%; }
 
@@ -106,6 +109,12 @@
     height: 25px;
     width: 25px;
     border-radius: 12.5px; }
+
+.slider-container {
+  margin: 10px 0; }
+
+.slider-stroke-label {
+  margin: 0; }
 
 .cp-color-swatch {
   height: 10px;

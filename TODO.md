@@ -1,7 +1,9 @@
 #### Important
+- Format/style line size selector
+- Hide color panel when eraser is selected
+
 
 #### Misc
-- Add new cursors *
 - Style all components
 
 #### Tools

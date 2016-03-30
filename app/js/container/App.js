@@ -13,7 +13,7 @@ export default class App extends Component {
         stroke: 1,
         strokeColor: "#000000"
       },
-      backgroundColor: "#EEEEEE"
+      backgroundColor: "#FFFFFF"
     }
   }
 
@@ -22,13 +22,15 @@ export default class App extends Component {
   }
 
   setSelectedTool(tool){
-    this.setState({selectedTool: tool});
-    if (tool === 'eraser'){
-      this.setState({ toolOptions: {strokeColor: this.state.backgroundColor} });
-    } else {
-      if (this.state.toolOptions.strokeColor === this.state.backgroundColor){
-        this.setState({ toolOptions: {strokeColor: "#000000"} });
-      }
+    switch (tool) {
+      case 'eraser':
+        this.setState({ selectedTool: tool, toolOptions: {strokeColor: this.state.backgroundColor, stroke: 30} });
+        break;
+      case 'brush':
+        this.setState({ selectedTool: tool, toolOptions: {strokeColor: "#000000", stroke: 30} });
+        break;
+      default:
+        this.setState({ selectedTool: tool, toolOptions: {strokeColor: "#000000", stroke: 1} });
     }
   }
 
