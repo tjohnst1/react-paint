@@ -13,11 +13,12 @@
   max-width: 1040px;
   margin: 0 auto;
   border: 1px solid;
-  padding: 15px; }
+  padding: 15px;
+  background: white;
+  box-shadow: 5px 5px 0px 0 #EEEEEE; }
 
 #canvas {
-  border: 2px solid black;
-  box-shadow: 5px 5px 0px 0 #EEEEEE; }
+  border: 2px solid black; }
 
 .drawing-canvas-container {
   width: 80%; }
@@ -155,4 +156,5 @@
   height: 14px; }
 
 body {
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjZmZmIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNjY2MiPjwvcmVjdD4KPC9zdmc+");
   font-family: sans-serif; }
