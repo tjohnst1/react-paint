@@ -9,22 +9,38 @@ describe('tool panel options component', () => {
 
   const app = TestUtils.renderIntoDocument(<App />);
   const toolPanel = TestUtils.findRenderedComponentWithType(app, ToolPanel);
-  const paintBrush = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-tool')[1];
-  TestUtils.Simulate.click(paintBrush);
-  const LineWeightSelector = TestUtils.findRenderedComponentWithType(toolPanel, LineWeightSelector);
+  const pencil = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-btn')[0];
+  const brush = TestUtils.scryRenderedDOMComponentsWithClass(toolPanel, 'tool-panel-btn')[1];
+  TestUtils.Simulate.click(pencil);
+  const lineWeightSelector = TestUtils.findRenderedComponentWithType(toolPanel, LineWeightSelector);
 
-  it('should identify the currently selected stroke weight (with the selected class)', () => {
-    const currentlySelectedLine = TestUtils.findRenderedDOMComponentWithClass(LineWeightSelector, 'line-container selected');
-    const newlySelectedLine = TestUtils.scryRenderedDOMComponentsWithClass(LineWeightSelector, 'line-container')[3];
+  it('should identify the currently selected pencil stroke weight (with the selected class)', () => {
+    const currentlySelectedLine = TestUtils.findRenderedDOMComponentWithClass(lineWeightSelector, 'line-container selected');
+    const newlySelectedLine = TestUtils.scryRenderedDOMComponentsWithClass(lineWeightSelector, 'line-container')[3];
     TestUtils.Simulate.click(newlySelectedLine);
     expect(currentlySelectedLine.className).toEqual('line-container');
     expect(newlySelectedLine.className).toEqual('line-container selected');
   });
 
-  it('should set the stroke weight in the application state', () => {
-    const mediumWeightLine = TestUtils.scryRenderedDOMComponentsWithClass(LineWeightSelector, 'line-container')[2];
+  it('should set the pencil stroke weight in the application state', () => {
+    const mediumWeightLine = TestUtils.scryRenderedDOMComponentsWithClass(lineWeightSelector, 'line-container')[2];
     TestUtils.Simulate.click(mediumWeightLine);
-    expect(app.state.toolOptions.stroke).toEqual(3);
+    expect(app.state.toolOptions.stroke).toEqual(10);
+  });
+
+  it('should set the brush stroke weight in the application state', () => {
+    TestUtils.Simulate.click(brush);
+    const mediumWeightBrush = TestUtils.scryRenderedDOMComponentsWithClass(lineWeightSelector, 'circle-container')[2];
+    TestUtils.Simulate.click(mediumWeightBrush);
+    expect(app.state.toolOptions.stroke).toEqual(30);
+  });
+
+  it('should identify the currently selected brush stroke weight (with the selected class)', () => {
+    const currentlySelectedCircle = TestUtils.findRenderedDOMComponentWithClass(lineWeightSelector, 'circle-container selected');
+    const newlySelectedCircle = TestUtils.scryRenderedDOMComponentsWithClass(lineWeightSelector, 'circle-container')[3];
+    TestUtils.Simulate.click(newlySelectedCircle);
+    expect(currentlySelectedCircle.className).toEqual('circle-container');
+    expect(newlySelectedCircle.className).toEqual('circle-container selected');
   });
 
 });

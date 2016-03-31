@@ -1,14 +1,14 @@
 .line-weight-selector-container{
   background: $grey;
   padding: 15px 0;
-  margin: 0px auto;
+  margin: 10px auto;
   height: 120px;
   width: 90%;
 }
 
 .line-container{
   padding: 7.5px;
-  margin: 0;
+  margin: 0 7.5px;
   cursor: pointer;
   border: 1px solid #eee;
   &.selected{
