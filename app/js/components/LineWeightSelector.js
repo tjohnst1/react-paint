@@ -20,7 +20,7 @@ export default class LineWeightSelector extends Component {
     }
     let circles = [];
     const sizeConstant = 15;
-    for (var i = 0; i < 5; i++){
+    for (var i = 0; i < 4; i++){
       let circleSize = i * sizeConstant;
       if (i === 0){
         circleSize = 1;

@@ -19,8 +19,10 @@ export default class ToolPanel extends Component {
                </button>)
       });
     return (
-      <div className="tool-panel">
-        {tools}
+      <div className="tool-panel-container">
+        <div className="tool-panel-btn-container">
+          {tools}
+        </div>
         { this.props.selectedTool !== 'eraser' ? <ColorPicker setStrokeColor={this.props.setStrokeColor} toolOptions={this.props.toolOptions}/> : null }
         <LineWeightSelector selectStroke={this.props.selectStroke} toolOptions={this.props.toolOptions} selectedTool={this.props.selectedTool}/>
       </div>

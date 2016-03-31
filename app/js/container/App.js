@@ -42,10 +42,10 @@ export default class App extends Component {
     var tools = ["pencil", "brush", "eraser"]
     return (
       <div className='index-container'>
-        <h1>React-Paint</h1>
+        <h1 className='index-title'>React-Paint</h1>
         <div className="drawing-container">
           <ToolPanel tools={tools} selectedTool={this.state.selectedTool} selectStroke={(stroke) => this.selectStroke(stroke)}
-           toolOptions={this.state.toolOptions} setSelectedTool={(tool) => this.setSelectedTool(tool)} setStrokeColor={(color) => this.setStrokeColor(color)}/>
+            toolOptions={this.state.toolOptions} setSelectedTool={(tool) => this.setSelectedTool(tool)} setStrokeColor={(color) => this.setStrokeColor(color)}/>
           <DrawingCanvas width="800" height="400" backgroundColor={this.state.backgroundColor} selectedTool={this.state.selectedTool} toolOptions={this.state.toolOptions}/>
         </div>
       </div>

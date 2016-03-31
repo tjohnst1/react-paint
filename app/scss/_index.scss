@@ -2,6 +2,18 @@
   text-align: center;
 }
 
+.index-title{
+  margin: 10px 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
 .drawing-container{
   display: flex;
+  max-width: 1040px;
+  margin: 0 auto;
+  border: 1px solid;
+  padding: 15px;
 }

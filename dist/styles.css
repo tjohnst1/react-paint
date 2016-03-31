@@ -1,11 +1,23 @@
 .index-container {
   text-align: center; }
 
+.index-title {
+  margin: 10px 0;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700; }
+
 .drawing-container {
-  display: flex; }
+  display: flex;
+  max-width: 1040px;
+  margin: 0 auto;
+  border: 1px solid;
+  padding: 15px; }
 
 #canvas {
-  border: 2px solid black; }
+  border: 2px solid black;
+  box-shadow: 5px 5px 0px 0 #EEEEEE; }
 
 .drawing-canvas-container {
   width: 80%; }
@@ -28,10 +40,17 @@
 .eraser-cursor-3x {
   cursor: url("/images/eraser-3x.png") 20 20, auto; }
 
-.tool-panel {
+.tool-panel-container {
   width: 20%;
-  border: 1px solid #EEEEEE;
-  padding: 20px; }
+  margin: 10px auto;
+  padding: 0 20px;
+  max-width: 180px; }
+
+.tool-panel-left {
+  display: inline-block; }
+
+.tool-panel-right {
+  display: inline-block; }
 
 .tool-panel-btn {
   display: inline-block;
@@ -53,9 +72,10 @@
 
 .line-weight-selector-container {
   background: #EEEEEE;
-  padding: 15px;
-  margin: 20px 0 0 0;
-  height: 120px; }
+  padding: 15px 0;
+  margin: 0px auto;
+  height: 120px;
+  width: 90%; }
 
 .line-container {
   padding: 7.5px;
@@ -105,16 +125,19 @@
     height: 20px;
     width: 20px;
     border-radius: 10px; }
-  .circle-container:nth-of-type(5) .circle {
-    height: 25px;
-    width: 25px;
-    border-radius: 12.5px; }
 
 .slider-container {
   margin: 10px 0; }
 
 .slider-stroke-label {
-  margin: 0; }
+  margin: 0;
+  color: #6f6f6f;
+  font-size: 0.7em; }
+
+.cp-container {
+  display: block;
+  width: 180px;
+  margin: 10px auto; }
 
 .cp-color-swatch {
   height: 10px;
@@ -130,3 +153,6 @@
 
 .cp-color-swatch-row {
   height: 14px; }
+
+body {
+  font-family: sans-serif; }

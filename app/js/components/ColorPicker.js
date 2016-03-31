@@ -19,7 +19,7 @@ export default class ColorPicker extends Component {
       colorSwatches.push((<div className="cp-color-swatch-row" key={j * 50}>{colorSwatchRow}</div>));
     }
     return (
-      <div>
+      <div className="cp-container">
         {colorSwatches}
       </div>
     )
