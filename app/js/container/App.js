@@ -39,7 +39,7 @@ export default class App extends Component {
   }
 
   render(){
-    var tools = ["pencil", "brush", "eraser"]
+    var tools = ["pencil", "brush", "eraser", "line"]
     return (
       <div className='index-container'>
         <h1 className='index-title'>React-Paint</h1>
