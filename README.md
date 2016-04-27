@@ -15,6 +15,8 @@ If you want to run a local copy:
 
 `npm start`
 
+Once the above steps are completed, navigate to localhost:8080 in your browser.
+
 ## Technologies Used
 JavaScript, React, SASS, HTML, Webpack, Gulp
 
