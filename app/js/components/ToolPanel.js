@@ -12,7 +12,7 @@ export default class ToolPanel extends Component {
           'selected': (this.props.selectedTool === `${tool}`)
         });
         const iconStyles = {
-          backgroundImage: `url('/images/icon-${tool}.svg')`
+          backgroundImage: `url('/react-paint/images/icon-${tool}.svg')`
         }
         return (<button key={i} className={toolClasses} onClick={() => this.props.setSelectedTool(tool)} aria-label={tool}>
                  <span style={iconStyles} className="tool-panel-tool-icon" aria-hidden="true"></span>
