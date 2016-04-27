@@ -7,7 +7,7 @@ A React/JavaScript application that allows the user to draw in browser using a v
 ## Setup
 If you want to run a local copy:
 
-`git clone https://github.com/tjohnst1/tjohnst1.github.io.git`
+`git clone https://github.com/tjohnst1/react-paint.git`
 
 `cd react-paint`
 
