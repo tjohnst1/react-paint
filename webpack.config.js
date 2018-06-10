@@ -1,9 +1,10 @@
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
   entry: './app/js/index.js',
   output: {
-    path: './dist',
+    path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js',
     publicPath: '/'
   },
@@ -12,12 +13,12 @@ module.exports = {
     contentBase: './dist'
   },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'babel',
+      loader: 'babel-loader',
       query: {
-        presets: ['es2015', 'react']
+        presets: ['env', 'react']
       }
     }]
   }
